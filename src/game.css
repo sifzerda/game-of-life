@@ -1,0 +1,33 @@
+/* src/GOL.css */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  gap: 1px;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.cell.alive {
+  background-color: black;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
