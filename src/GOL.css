@@ -87,6 +87,10 @@ label {
     margin-left: 10px;
   }
 
+input[type="number" i] {
+  color: black;
+}
+
 @media (min-width: 600px) {
   .slider-container {
     flex-direction: row; /* Stack sliders side by side on larger screens */
