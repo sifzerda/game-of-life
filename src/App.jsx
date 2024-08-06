@@ -13,14 +13,14 @@ function App() {
     <Router>
       <div>
         <nav>
-          <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
-            <li style={{ margin: '0 10px' }}>
+          <ul>
+            <li>
               <Link to="/">Home</Link>
             </li>
-            <li style={{ margin: '0 10px' }}>
+            <li>
               <Link to="/about">About</Link>
             </li>
-            <li style={{ margin: '0 10px' }}>
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
           </ul>

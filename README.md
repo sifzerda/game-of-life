@@ -91,7 +91,10 @@ Optimization:
   - [x] enable manual input
 - [x] enable changing group quantity input
   - [ ] enable manual input
- 
+ - create components:
+   - [ ] header
+   - [ ] footer
+   - [ ] nav tabs
 - [ ] enable changing game speed
 
 ## (10) Support

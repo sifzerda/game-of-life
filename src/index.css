@@ -38,8 +38,18 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.2em;
   line-height: 1.1;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: 'flex';
+}
+
+li {
+  margin: 0 10px;
 }
 
 button {
@@ -73,5 +83,56 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.6em!important;
+  }
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+  ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    margin: 5px 0;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5em!important;
+  }
+  button {
+    padding: 0.55em 1.1em;
+    font-size: 0.95em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and down) */
+@media only screen and (max-width: 992px) {
+  h1 {
+    font-size: 2.4em!important;
+  }
+  button {
+    padding: 0.58em 1.15em;
+    font-size: 0.98em;
+  }
+}
+
+/* Extra large devices (large laptops/desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  button {
+    padding: 0.65em 1.3em;
+    font-size: 1.05em;
   }
 }
