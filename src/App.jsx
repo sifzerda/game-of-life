@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='background'>
         <nav>
           <ul>
             <li>
