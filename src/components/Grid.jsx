@@ -74,8 +74,8 @@ const Grid = () => {
         )}
       </div>
       <div className="controls">
-        <button onClick={handleStart}>Start</button>
-        <button onClick={handleStop}>Stop</button>
+        <button onClick={handleStart}>Play</button>
+        <button onClick={handleStop}>Pause</button>
       </div>
     </div>
   );
