@@ -5,6 +5,8 @@ const Grid = () => {
   const [grid, setGrid] = useState(() => initializeGrid(5)); // Initialize with default cluster size
   const [running, setRunning] = useState(false); // State to control simulation
   const [clusterSize, setClusterSize] = useState(5); // State for cluster size
+  const [numClusters, setNumClusters] = useState(10); // State for number of clusters
+
   const intervalRef = useRef(null); // Ref to hold the interval ID
 
   useEffect(() => {
@@ -38,8 +40,8 @@ const Grid = () => {
 
   useEffect(() => {
     // Reinitialize grid when clusterSize changes
-    setGrid(initializeGrid(clusterSize));
-  }, [clusterSize]);
+    setGrid(initializeGrid(clusterSize, numClusters));
+  }, [clusterSize, numClusters]);
 
   const countNeighbors = (grid, row, col) => {
     const directions = [
@@ -62,12 +64,12 @@ const Grid = () => {
   const handleStop = () => setRunning(false);
 
   // Initialize grid with a few random clusters
-  function initializeGrid(clusterSize) {
+  function initializeGrid(clusterSize, numClusters) {
     const grid = Array.from({ length: gridSize }, () =>
       Array.from({ length: gridSize }, () => false)
     );
 
-    const numClusters = 10; // Number of clusters
+    //const numClusters = 10; // Number of clusters
 
     for (let i = 0; i < numClusters; i++) {
       const startRow = Math.floor(Math.random() * gridSize);
@@ -101,17 +103,30 @@ const Grid = () => {
       <div className="controls">
         <button onClick={handleStart}>Play</button>
         <button onClick={handleStop}>Pause</button>
+
+{/* ------------------------------------- sliders -------------------------------- */}
         <div className="slider-container">
-          <label htmlFor="clusterSize">Cluster Size: {clusterSize}</label>
+          <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
           <input
             id="clusterSize"
             type="range"
             min="1"
-            max="20"
+            max="50"
             value={clusterSize}
             onChange={(e) => setClusterSize(Number(e.target.value))}
-          />
+            />
+
+          <label htmlFor="numClusters">Number of Groups: {numClusters}</label>
+          <input
+            id="numClusters"
+            type="range"
+            min="1"
+            max="50"
+            value={numClusters}
+            onChange={(e) => setNumClusters(Number(e.target.value))}
+            />
         </div>
+{/* ------------------------------------------------------------------------------ */}
       </div>
     </div>
   );
