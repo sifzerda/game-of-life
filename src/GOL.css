@@ -17,6 +17,10 @@ label {
   color:  #282c34;
 }
 
+input {
+  background-color: white!important;
+}
+
 .grid-container {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
