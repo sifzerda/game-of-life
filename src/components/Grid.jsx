@@ -69,13 +69,10 @@ const Grid = () => {
       Array.from({ length: gridSize }, () => false)
     );
 
-    //const numClusters = 10; // Number of clusters
-
     for (let i = 0; i < numClusters; i++) {
       const startRow = Math.floor(Math.random() * gridSize);
       const startCol = Math.floor(Math.random() * gridSize);
       
-      // Randomly populate a cluster around the starting point
       for (let row = startRow; row < startRow + clusterSize && row < gridSize; row++) {
         for (let col = startCol; col < startCol + clusterSize && col < gridSize; col++) {
           if (Math.random() > 0.5) {
@@ -104,29 +101,47 @@ const Grid = () => {
         <button onClick={handleStart}>Play</button>
         <button onClick={handleStop}>Pause</button>
 
-{/* ------------------------------------- sliders -------------------------------- */}
+        {/* ------------------------------------- sliders -------------------------------- */}
         <div className="slider-container">
-          <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
-          <input
-            id="clusterSize"
-            type="range"
-            min="1"
-            max="50"
-            value={clusterSize}
-            onChange={(e) => setClusterSize(Number(e.target.value))}
+          <div className="slider-group">
+            <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
+            <input
+              id="clusterSize"
+              type="range"
+              min="1"
+              max="50"
+              value={clusterSize}
+              onChange={(e) => setClusterSize(Number(e.target.value))}
             />
+            <input
+              type="number"
+              min="1"
+              max="50"
+              value={clusterSize}
+              onChange={(e) => setClusterSize(Number(e.target.value))}
+            />
+          </div>
 
-          <label htmlFor="numClusters">Number of Groups: {numClusters}</label>
-          <input
-            id="numClusters"
-            type="range"
-            min="1"
-            max="50"
-            value={numClusters}
-            onChange={(e) => setNumClusters(Number(e.target.value))}
+          <div className="slider-group">
+            <label htmlFor="numClusters">Group Quantity: {numClusters}</label>
+            <input
+              id="numClusters"
+              type="range"
+              min="1"
+              max="50"
+              value={numClusters}
+              onChange={(e) => setNumClusters(Number(e.target.value))}
             />
+            <input
+              type="number"
+              min="1"
+              max="50"
+              value={numClusters}
+              onChange={(e) => setNumClusters(Number(e.target.value))}
+            />
+          </div>
         </div>
-{/* ------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------ */}
       </div>
     </div>
   );
