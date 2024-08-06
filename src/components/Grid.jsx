@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from "react";
 
 const Grid = () => {
   const gridSize = 100; // Define the grid size
-  const [grid, setGrid] = useState(() => initializeGrid());
+  const [grid, setGrid] = useState(() => initializeGrid(5)); // Initialize with default cluster size
   const [running, setRunning] = useState(false); // State to control simulation
+  const [clusterSize, setClusterSize] = useState(5); // State for cluster size
   const intervalRef = useRef(null); // Ref to hold the interval ID
 
   useEffect(() => {
@@ -35,6 +36,11 @@ const Grid = () => {
     return () => clearInterval(intervalRef.current); // Cleanup on unmount
   }, [running, gridSize]);
 
+  useEffect(() => {
+    // Reinitialize grid when clusterSize changes
+    setGrid(initializeGrid(clusterSize));
+  }, [clusterSize]);
+
   const countNeighbors = (grid, row, col) => {
     const directions = [
       [-1, -1], [-1, 0], [-1, 1],
@@ -56,13 +62,12 @@ const Grid = () => {
   const handleStop = () => setRunning(false);
 
   // Initialize grid with a few random clusters
-  function initializeGrid() {
+  function initializeGrid(clusterSize) {
     const grid = Array.from({ length: gridSize }, () =>
       Array.from({ length: gridSize }, () => false)
     );
 
     const numClusters = 10; // Number of clusters
-    const clusterSize = 5; // Size of each cluster
 
     for (let i = 0; i < numClusters; i++) {
       const startRow = Math.floor(Math.random() * gridSize);
@@ -96,6 +101,17 @@ const Grid = () => {
       <div className="controls">
         <button onClick={handleStart}>Play</button>
         <button onClick={handleStop}>Pause</button>
+        <div className="slider-container">
+          <label htmlFor="clusterSize">Cluster Size: {clusterSize}</label>
+          <input
+            id="clusterSize"
+            type="range"
+            min="1"
+            max="20"
+            value={clusterSize}
+            onChange={(e) => setClusterSize(Number(e.target.value))}
+          />
+        </div>
       </div>
     </div>
   );
