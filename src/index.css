@@ -22,9 +22,10 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #61dafb;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -35,6 +36,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+nav {
+  background-color: #282c34;
+  border-radius: 8px;
+}
+
+span {
+  color: #61dafb;
 }
 
 h1 {
@@ -71,6 +81,34 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Footer */
+.footer {
+  padding: 0.1px;
+  color: white;
+  text-align: center;
+  background-color: #282c34;
+  border-radius: 8px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer a {
+  color: #61dafb;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer p {
+  margin: 13px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: light) {
