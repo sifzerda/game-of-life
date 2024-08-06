@@ -6,6 +6,7 @@ const Grid = () => {
   const [running, setRunning] = useState(false); // State to control simulation
   const [clusterSize, setClusterSize] = useState(5); // State for cluster size
   const [numClusters, setNumClusters] = useState(10); // State for number of clusters
+  const [speed, setSpeed] = useState(100); // State for simulation speed (ms)
 
   const intervalRef = useRef(null); // Ref to hold the interval ID
 
@@ -27,16 +28,15 @@ const Grid = () => {
               }
             }
           }
-
           return newGrid;
         });
-      }, 100); // Update every 100ms
+      }, speed); // Use the dynamic speed state here
     } else {
       clearInterval(intervalRef.current); // Clear interval when stopped
     }
 
     return () => clearInterval(intervalRef.current); // Cleanup on unmount
-  }, [running, gridSize]);
+  }, [running, gridSize, speed]);
 
   useEffect(() => {
     // Reinitialize grid when clusterSize changes
@@ -102,8 +102,8 @@ const Grid = () => {
         <button onClick={handleStop}>Pause</button>
         </div>
 
-        {/* ------------------------------------- sliders -------------------------------- */}
-        <div className="controls">
+      {/* ------------------------------------- sliders -------------------------------- */}
+      <div className="controls">
         <div className="slider-container">
           <div className="slider-group">
             <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
@@ -140,6 +140,27 @@ const Grid = () => {
               max="50"
               value={numClusters}
               onChange={(e) => setNumClusters(Number(e.target.value))}
+            />
+          </div>
+
+          {/* Speed Slider */}
+          <div className="slider-group">
+            <label htmlFor="speed">Speed: {speed}ms</label>
+            <input
+              id="speed"
+              type="range"
+              min="10"
+              max="500"
+              step="10"
+              value={speed}
+              onChange={(e) => setSpeed(Number(e.target.value))}
+            />
+            <input
+              type="number"
+              min="10"
+              max="500"
+              value={speed}
+              onChange={(e) => setSpeed(Number(e.target.value))}
             />
           </div>
         </div>
