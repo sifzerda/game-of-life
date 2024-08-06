@@ -3,12 +3,18 @@
 .desc {
   margin: 4px;
   text-align: center;
+  color:  #282c34;
 }
 
 .desc-2 {
   margin: 4px;
   margin-bottom: 10px;
   text-align: center;
+  color:  #282c34;
+}
+
+label {
+  color:  #282c34;
 }
 
 .grid-container {
