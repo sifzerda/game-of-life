@@ -2,13 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 const Grid = () => {
   const gridSize = 100; // Define the grid size
-  const [grid, setGrid] = useState(() => {
-    // Initialize the grid with random states
-    const initialGrid = Array.from({ length: gridSize }, () =>
-      Array.from({ length: gridSize }, () => Math.random() > 0.7)
-    );
-    return initialGrid;
-  });
+  const [grid, setGrid] = useState(() => initializeGrid());
   const [running, setRunning] = useState(false); // State to control simulation
   const intervalRef = useRef(null); // Ref to hold the interval ID
 
@@ -60,6 +54,32 @@ const Grid = () => {
 
   const handleStart = () => setRunning(true);
   const handleStop = () => setRunning(false);
+
+  // Initialize grid with a few random clusters
+  function initializeGrid() {
+    const grid = Array.from({ length: gridSize }, () =>
+      Array.from({ length: gridSize }, () => false)
+    );
+
+    const numClusters = 10; // Number of clusters
+    const clusterSize = 5; // Size of each cluster
+
+    for (let i = 0; i < numClusters; i++) {
+      const startRow = Math.floor(Math.random() * gridSize);
+      const startCol = Math.floor(Math.random() * gridSize);
+      
+      // Randomly populate a cluster around the starting point
+      for (let row = startRow; row < startRow + clusterSize && row < gridSize; row++) {
+        for (let col = startCol; col < startCol + clusterSize && col < gridSize; col++) {
+          if (Math.random() > 0.5) {
+            grid[row][col] = true;
+          }
+        }
+      }
+    }
+
+    return grid;
+  }
 
   return (
     <div className="grid-container">
