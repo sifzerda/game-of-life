@@ -24,7 +24,7 @@
     grid-template-rows: repeat(100, 1fr);
     width: 500px; /* Adjust the width to your preference */
     height: 500px; /* Adjust the height to your preference */
-    border: 1px solid #ddd; /* Border around the grid */
+    border: 2px solid #61dafb; /* Border around the grid */
   }
   
   .grid-cell {

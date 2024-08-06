@@ -40,7 +40,8 @@ A front end React app to illustrate Conway's Game of Life. Built with HTML, Java
 
 [Visit App deployed to Vercel](https://slotmachine-five.vercel.app/)
 
-![pic2](https://github.com/user-attachments/assets/27063b19-bbc0-4984-925d-58f2fb27da78)
+![gamescreen1](https://github.com/user-attachments/assets/08ebb135-f943-4916-8122-88fc6a7a2001)
+
 
 ## (4) Installation
 
@@ -94,6 +95,8 @@ Optimization:
    - [ ] footer
    - [ ] nav tabs
 - [x] enable changing game speed
+- [ ] add description on About page
+- [ ] remove contact page?
 
 ## (10) Support
 
