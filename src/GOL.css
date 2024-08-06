@@ -1,5 +1,11 @@
 /* Grid.css */
 
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(100, 1fr);
@@ -14,4 +20,22 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box; /* Include padding and border in element's total width and height */
+  }
+
+  .grid-cell.alive {
+    background-color: black; /* Cell color when alive */
+  }
+  
+  .grid-cell.dead {
+    background-color: white; /* Cell color when dead */
+  }
+  
+  .controls {
+    margin-top: 10px;
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 16px;
   }
