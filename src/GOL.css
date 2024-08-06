@@ -1,5 +1,16 @@
 /* Grid.css */
 
+.desc {
+  margin: 4px;
+  text-align: center;
+}
+
+.desc-2 {
+  margin: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .grid-container {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
@@ -34,11 +45,14 @@
   .controls {
     margin-top: 20px;
     text-align: center;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center items horizontally */
+    gap: 10px; /* Add space between buttons */
   }
 
   .slider-container {
     display: flex;
-    flex-direction: column; /* Default to side by side */
+ /* flex-direction: column;  ---------- Default to side by side */
     align-items: center;
     margin-top: 10px;
   }

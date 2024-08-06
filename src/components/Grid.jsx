@@ -100,8 +100,10 @@ const Grid = () => {
       <div className="controls">
         <button onClick={handleStart}>Play</button>
         <button onClick={handleStop}>Pause</button>
+        </div>
 
         {/* ------------------------------------- sliders -------------------------------- */}
+        <div className="controls">
         <div className="slider-container">
           <div className="slider-group">
             <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
