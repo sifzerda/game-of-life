@@ -88,14 +88,12 @@ Optimization:
 - [x] add game based alternating rules (cells alive or dead + switch)
 - [ ] enable changing game screen size/cell size
 - [x] enable changing group size input
-  - [x] enable manual input
 - [x] enable changing group quantity input
-  - [ ] enable manual input
  - create components:
    - [ ] header
    - [ ] footer
    - [ ] nav tabs
-- [ ] enable changing game speed
+- [x] enable changing game speed
 
 ## (10) Support
 
