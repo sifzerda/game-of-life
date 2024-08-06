@@ -18,7 +18,7 @@
 
 ## (1) Description
 
-A front end React app to illustrate Conway's Game of Life. You can play, pause, and adjust the group size and quantities with the sliders or manually input values. Built with HTML, JavaScript and CSS.
+A front end React app to illustrate Conway's Game of Life. Built with HTML, JavaScript and CSS.
 
 ## (2) Badges
 
@@ -40,8 +40,6 @@ A front end React app to illustrate Conway's Game of Life. You can play, pause, 
 
 [Visit App deployed to Vercel](https://slotmachine-five.vercel.app/)
 
-[Visit App deployed to Netlify](https://slotmachine-10.netlify.app/)
-
 ![pic2](https://github.com/user-attachments/assets/27063b19-bbc0-4984-925d-58f2fb27da78)
 
 ## (4) Installation
@@ -55,9 +53,9 @@ npm run start
 
 ## (5) Usage
 
-Technologies:
-
-+ react-player 
++ Play and pause to run and freeze simulation
++ Group size: change the number of cells each group has
++ Group quantity: change the number of groups in the grid.
 
 ## (6) Dev Stuff: Building:
 
@@ -76,28 +74,25 @@ const ;
 ## (8) Bugs and Further Development: 
 
 Bugs:
-- Sometimes player doesn't show time progress on first entering page; you have to reload page by clicking the 'info' tabe and then returning to the player.
+- N/A
 
 Optimization:
-- use react-virtualized to only render visible stuff
-- once game basically running, convert it into Redux or Zustand
-- use a bundler like Webpack or Parcel to optimize build output: Enable code splitting, tree-shaking, and minification to reduce bundle size and improve load times.
-- Consider memoizing components like Projectile and Particle using React.memo to prevent unnecessary re-renders, especially if their props rarely change.
+- ~~use react-virtualized to only render visible stuff~~
+- ~~once game basically running, convert it into Redux or Zustand~~
+- ~~use a bundler like Webpack or Parcel to optimize build output: Enable code splitting, tree-shaking, and minification to reduce bundle size and improve load times.~~
+- ~~Consider memoizing components like Projectile and Particle using React.memo to prevent unnecessary re-renders, especially if their props rarely change.~~
 
 ## (9) To do: 
 
-- [x] create player
-- [x] add songs
-- [x] add play, pause, next/prev song
-- [x] styling like a car stereo/radio
-- [x] make current song scroll
-  - [x] fix boundary of scroll
-- [x] customized volume adjustor
-- [x] restyle volume adjustor
-- [ ] user can make playlists
-- [ ] save play data; how many times song has been played, last 10 songs played
-- [ ] saving song progress/location if page returned to or skipped
-- [ ] youtube or music hosting site API to fetch songs from
+- [x] create 100 x 100 grid
+- [x] add game based alternating rules (cells alive or dead + switch)
+- [ ] enable changing game screen size/cell size
+- [x] enable changing group size input
+  - [x] enable manual input
+- [x] enable changing group quantity input
+  - [ ] enable manual input
+ 
+- [ ] enable changing game speed
 
 ## (10) Support
 
