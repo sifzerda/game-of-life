@@ -16,8 +16,8 @@ const Grid = () => {
   const countNeighbors = useMemo(() => (grid, row, col) => {
     const directions = [
       [-1, -1], [-1, 0], [-1, 1],
-      [0, -1], [0, 1],
-      [1, -1], [1, 0], [1, 1]
+      [0, -1],           [0, 1],
+      [1, -1],  [1, 0],  [1, 1]
     ];
     return directions.reduce((count, [dx, dy]) => {
       const newRow = row + dx;
@@ -58,12 +58,8 @@ const Grid = () => {
     setGrid(initializeGrid(clusterSize, numClusters));
   }, [clusterSize, numClusters]);
 
-  const handleStart = useCallback(() => {
-    setRunning(true);
-  }, []);
-
-  const handleStop = useCallback(() => {
-    setRunning(false);
+  const handleToggle = useCallback(() => {
+    setRunning(prevRunning => !prevRunning);
   }, []);
 
   const handleReset = useCallback(() => {
@@ -106,6 +102,11 @@ const Grid = () => {
  
   return (
     <div className="grid-container">
+
+    <div className='timer'>
+      <p> Elapsed Time: </p> {formatTime(time)}
+      </div>
+
       <div className="grid">
         {grid.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
@@ -116,11 +117,12 @@ const Grid = () => {
           ))
         )}
       </div>
+      
       <div className="controls">
-        <button onClick={handleStart}>Play</button>
-        <button onClick={handleStop}>Pause</button>
+        <button onClick={handleToggle}>
+          {running ? '❚❚' : '▶'}
+        </button>
         <button onClick={handleReset}>Reset</button>
-        <div>Elapsed Time: {formatTime(time)}</div>
       </div>
 
       {/* ------------------------------------- sliders -------------------------------- */}

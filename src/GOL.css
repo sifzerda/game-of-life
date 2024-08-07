@@ -21,6 +21,13 @@ input {
   background-color: white!important;
 }
 
+
+
+.timer {
+  color:  #282c34;
+  width: 500px; /*  same as grid div */
+}
+
 .grid-container {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
