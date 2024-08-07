@@ -7,11 +7,14 @@ const Grid = () => {
   const [clusterSize, setClusterSize] = useState(5); // State for cluster size
   const [numClusters, setNumClusters] = useState(10); // State for number of clusters
   const [speed, setSpeed] = useState(100); // State for simulation speed (ms)
+  const [time, setTime] = useState(0); // State to hold elapsed time in seconds
 
   const intervalRef = useRef(null); // Ref to hold the interval ID
+  const timerRef = useRef(null); // Ref to hold the timer interval ID
 
   useEffect(() => {
     if (running) {
+      // Simulation interval
       intervalRef.current = setInterval(() => {
         setGrid(prevGrid => {
           const newGrid = prevGrid.map(row => row.slice());
@@ -31,11 +34,20 @@ const Grid = () => {
           return newGrid;
         });
       }, speed); // Use the dynamic speed state here
+
+      // Timer interval
+      timerRef.current = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000); // Increment every second
     } else {
       clearInterval(intervalRef.current); // Clear interval when stopped
+      clearInterval(timerRef.current); // Clear timer interval when stopped
     }
 
-    return () => clearInterval(intervalRef.current); // Cleanup on unmount
+    return () => {
+      clearInterval(intervalRef.current); // Cleanup on unmount
+      clearInterval(timerRef.current);
+    };
   }, [running, gridSize, speed]);
 
   useEffect(() => {
@@ -46,8 +58,8 @@ const Grid = () => {
   const countNeighbors = (grid, row, col) => {
     const directions = [
       [-1, -1], [-1, 0], [-1, 1],
-      [0, -1],          [0, 1],
-      [1, -1], [1, 0], [1, 1]
+      [0, -1],            [0, 1],
+      [1, -1],  [1, 0],   [1, 1]
     ];
     let count = 0;
     directions.forEach(([dx, dy]) => {
@@ -60,8 +72,19 @@ const Grid = () => {
     return count;
   };
 
-  const handleStart = () => setRunning(true);
-  const handleStop = () => setRunning(false);
+  const handleStart = () => {
+    setRunning(true);
+  };
+
+  const handleStop = () => {
+    setRunning(false);
+  };
+
+  const handleReset = () => {
+    setRunning(false);
+    setTime(0);
+    setGrid(initializeGrid(clusterSize, numClusters)); // Reset grid with current cluster size and number
+  };
 
   // Initialize grid with a few random clusters
   function initializeGrid(clusterSize, numClusters) {
@@ -84,7 +107,9 @@ const Grid = () => {
     return grid;
   }
 
-  return (
+ {/* ------------------------------------- rendering -------------------------------- */}
+ 
+ return (
     <div className="grid-container">
       <div className="grid">
         {grid.map((row, rowIndex) =>
@@ -99,11 +124,14 @@ const Grid = () => {
       <div className="controls">
         <button onClick={handleStart}>Play</button>
         <button onClick={handleStop}>Pause</button>
+        <button onClick={handleReset}>Reset</button>
+        <div>Elapsed Time: {time}s</div>
         </div>
 
       {/* ------------------------------------- sliders -------------------------------- */}
       <div className="controls">
         <div className="slider-container">
+          {/* ---------------Size Slider ----------------*/}
           <div className="slider-group">
             <label htmlFor="clusterSize">Group Size: {clusterSize}</label>
             <input
@@ -122,7 +150,7 @@ const Grid = () => {
               onChange={(e) => setClusterSize(Number(e.target.value))}
             />
           </div>
-
+{/* ---------------Quantity Slider ----------------*/}
           <div className="slider-group">
             <label htmlFor="numClusters">Group Quantity: {numClusters}</label>
             <input
@@ -141,8 +169,7 @@ const Grid = () => {
               onChange={(e) => setNumClusters(Number(e.target.value))}
             />
           </div>
-
-          {/* Speed Slider */}
+{/* ---------------Speed Slider ----------------*/}
           <div className="slider-group">
             <label htmlFor="speed">Speed: {speed}ms</label>
             <input

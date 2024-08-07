@@ -62,8 +62,7 @@ npm run start
 
 The main functions of code:
 
-- React-player has a default appearance, which was changed, setting controls={false} and making useStates to control volume, song progress bar, song time, etc.
-- playlist, time, volume, and song location tracked in useStates
+- ...
 
 ## (7) Alternative Config
 
@@ -92,7 +91,7 @@ Optimization:
 - [x] enable changing group quantity input
  - create components:
    - [ ] header
-   - [ ] footer
+   - [x] footer
    - [ ] nav tabs
 - [x] enable changing game speed
 - [ ] add description on About page
