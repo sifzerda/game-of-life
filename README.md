@@ -71,10 +71,7 @@ The main functions of code:
 
 ## (7) Alternative Config
 
-xxx :
-```bash
-const ;
-```
+- N/A
 
 ## (8) Bugs and Further Development: 
 
