@@ -79,10 +79,10 @@ Bugs:
 - N/A
 
 Optimization:
-- ~~use react-virtualized to only render visible stuff~~
+- [x] Uses useMemo to prevent re-renders unless dependencies change.
+- [ ] use react-virtualized to only render visible stuff
 - ~~once game basically running, convert it into Redux or Zustand~~
-- ~~use a bundler like Webpack or Parcel to optimize build output: Enable code splitting, tree-shaking, and minification to reduce bundle size and improve load times.~~
-- ~~Consider memoizing components like Projectile and Particle using React.memo to prevent unnecessary re-renders, especially if their props rarely change.~~
+- [ ] use a bundler like Webpack or Parcel to optimize build output: Enable code splitting, tree-shaking, and minification to reduce bundle size and improve load times.
 
 ## (9) To do: 
 
