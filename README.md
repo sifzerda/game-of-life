@@ -62,7 +62,12 @@ npm run start
 
 The main functions of code:
 
-- ...
+- 'const countNeighbors = useMemo': like in my minesweeper code, this maps the grid with 2D 'directions' array coordinates as live/dead neighbours. 'useMemo' ensures the function refires when its dependencies change;
+- 'timerRef.current': sets time interval of game, incremented every 100ms;
+- function initializeGrid: sets up starting grid
+- handleToggle: fx for game reset;
+- handleReset: fx for reset operations;
+- const formatTime: converts timer readout to mm:ss:ms format
 
 ## (7) Alternative Config
 
@@ -94,6 +99,8 @@ Optimization:
    - [x] footer
    - [ ] nav tabs
 - [x] enable changing game speed
+- [x] create timer
+  - [x] Format time mm:ss:ms
 - [ ] add description on About page
 - [ ] remove contact page?
 
