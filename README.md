@@ -62,7 +62,7 @@ npm run start
 
 The main functions of code:
 
-- 'const countNeighbors = useMemo': like in my minesweeper code, this maps the grid with 2D 'directions' array coordinates as live/dead neighbours. 'useMemo' ensures the function refires when its dependencies change;
+- 'const countNeighbors = useMemo': like in my minesweeper code, this maps the grid with 2D 'directions' array coordinates as live/dead neighbours. 'useMemo' ensures the function only refires when its dependencies change;
 - 'timerRef.current': sets time interval of game, incremented every 100ms;
 - function initializeGrid: sets up starting grid
 - handleToggle: fx for game reset;
