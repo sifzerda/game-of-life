@@ -130,3 +130,58 @@ input[type="number" i] {
   margin-left: 5px;
   margin-top: 8px;
 }
+
+
+/* -------------ABOUT PAGE ---------------*/
+
+
+.about-container {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  justify-content: center;
+  align-items: center;
+  max-width: 700px; /* Optional: Set a maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  text-align: center; /* Center-align text within paragraphs */
+  padding: 20px; /* Optional: Add padding inside the container */
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+.styled-list {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  margin: 20px auto; /* Center list on the page with top/bottom margin */
+  max-width: 600px; /* Limit width for better readability */
+  display: flex; /* Optional: Align items in a grid or row if needed */
+  flex-wrap: wrap; /* Allow items to wrap if they exceed the container's width */
+  gap: 10px; /* Add space between items */
+}
+
+.styled-list li {
+  border: 2px solid #61dafb; /* Add border around each item */
+  border-radius: 8px; /* Round the corners */
+  padding: 15px; /* Add padding inside the border */
+  margin-bottom: 10px; /* Add space between list items */
+  background-color: #f9f9f9; /* Light background for each item */
+  color: #333; /* Text color */
+  font-size: 16px; /* Adjust font size */
+  line-height: 1.5; /* Improve readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  box-sizing: border-box; /* Include padding and border in size */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  display: flex; /* Use flexbox for content alignment */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  text-align: center; /* Center-align the text */
+  white-space: normal; /* Allow text to wrap within the fixed size */
+}
+
+/* Optional hover effect */
+.styled-list li:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Intensify shadow */
+  background-color: #b9edfc; /* Light green background on hover */
+}
